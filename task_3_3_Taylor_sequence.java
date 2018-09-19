@@ -1,29 +1,26 @@
 import java.util.Scanner;
 
-public class Taylor_sequence_3_3 {
+public class task_3_3_Taylor_sequence {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Xn, Xk, dx, eps: ");
-        double x, sum, n, i, Xn, Xk, dx, eps;
+        double x, sum, n, Xn, Xk, dx, eps;
         do {
             Xn = input.nextDouble();
             Xk = input.nextDouble();
-            System.out.println((Xk < Xn) ? "Error input, Xk < Xn!.\nTry again." : "");
+            System.out.print((Xk < Xn) ? "Error input, Xk < Xn!.\r\nTry again.\r\n" : "");
         } while(Xk < Xn);
-        System.out.println("enter dx, eps: ");
         dx = input.nextDouble();
         eps = input.nextDouble();
         while (Xn <= Xk){
             x = Xn;
             sum = 1;
             n = 1;
-            i = 1;
-            while ((Math.abs(Math.pow(-x, i))) / getFactorial(i) > eps) {
-                sum += (Math.pow(-x, i)) / getFactorial(i);
-                i++;
+            while ((Math.abs(Math.pow(x, n))) / getFactorial(n) > eps) {
+                sum += (Math.pow(x, n)) / getFactorial(n);
                 n++;
             }
-            System.out.println("x: " + Xn + "\t f(x): " + sum + " \t Кол-во членов: " + n + " \t" + Math.exp(-x));
+            System.out.println("x: " + Xn + "\t f(x): " + sum + " \t Кол-во членов: " + n + " \t" + Math.exp(x));
             Xn += dx;
         }
     }
