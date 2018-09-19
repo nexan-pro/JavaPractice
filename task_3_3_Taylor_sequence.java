@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class main {
+public class Taylor_sequence_3_3 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Xn, Xk, dx, eps: ");
