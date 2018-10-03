@@ -1,5 +1,5 @@
 package array_tasks;
-//block A
+//block A № 3 liner
 public class task0_1_var_3 {
     public static void main(String[] args) {
         int[] arr = new int[7];

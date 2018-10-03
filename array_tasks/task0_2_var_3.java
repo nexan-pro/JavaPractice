@@ -1,5 +1,5 @@
 package array_tasks;
-// block 'Б'
+// block 'Б' № 3 liner
 
 public class task0_2_var_3 {
     public static void main(String[] args) {

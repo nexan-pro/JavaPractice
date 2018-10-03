@@ -1,3 +1,5 @@
+package task3;
+
 import java.util.Scanner;
 
 public class task_3_3_Taylor_sequence {
