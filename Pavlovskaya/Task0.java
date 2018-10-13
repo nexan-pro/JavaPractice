@@ -1,3 +1,5 @@
+package Pavlovskaya;
+
 import java.util.Scanner;
 
 public class Task0 {

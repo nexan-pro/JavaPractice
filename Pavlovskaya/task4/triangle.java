@@ -1,4 +1,4 @@
-package task4;
+package Pavlovskaya.task4;
 
 public class triangle {
     point a, b, c;

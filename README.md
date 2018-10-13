@@ -1,1 +1,1 @@
-JavaPractice
+Collection of tasks.

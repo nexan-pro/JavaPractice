@@ -1,4 +1,4 @@
-package task4;
+package Pavlovskaya.task4;
 import java.util.Scanner;
 
 public class task_4_3_class {

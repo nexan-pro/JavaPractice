@@ -10,15 +10,13 @@ public class main {
         System.out.print("Vvedite: N = ");
         int n = in.nextInt();
         int[][] array = new int[2 * n - 1][2 * n - 1];
-        if (n % 2 != 0) {
+        if (n % 2 != 0)
             oddN(array, n);
-        } else if (n % 4 == 0) {
+        else if (n % 4 == 0)
             multipleFour(array, n);
-        } else {
+            else
             evenN(array, n);
-        }
         System.out.print("Summary of elements magical cube: " + (Math.pow(n,3) + n) / 2);
-        //TODO
     }
 
     static int[][] oddN(int[][] src, int size) {
@@ -93,8 +91,8 @@ public class main {
             for (int i = 0; i < size - 1; i++) {
                 rhs[cnt][ecx] += size + it;
                 it += size;
-                rhs[cnt - 1][z] = secretKey;
                 secretKey -= size;
+                rhs[cnt - 1][z] = secretKey;
                 cnt++;
             }
             z+=2;
@@ -168,8 +166,6 @@ public class main {
         square[size / 2][0] = tmp1;
         square[size / 2 - 1][0] = square[size - 1][0];
         square[size - 1][0] = tmp2;
-
-
         for (int z = 1; z < size / 2 - 1; ++z) { // python implementation : for i in range(1, size / 2 - 1): check parameters of func rand '1'
             tmp1 = square[z][1];
             square[z][1] = square[z + size / 2][1];
