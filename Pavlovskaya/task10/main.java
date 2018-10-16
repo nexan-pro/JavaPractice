@@ -65,8 +65,5 @@ public class main {
             }
         return (obj);
     }
-    //static void printBad(HashMap<String, Integer> src){
-
-    //}
 }
 
