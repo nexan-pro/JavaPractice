@@ -20,17 +20,17 @@
                 <Font name="Droid Serif Italic" size="16.0" />
             </font>
         </Label>
-        <Label fx:id="volumeLabel" alignment="TOP_LEFT" layoutX="96.0" layoutY="24.0" prefHeight="20.0" prefWidth="289.0" textFill="#0a9e80f0">
+        <Label fx:id="volumeLabel" alignment="TOP_LEFT" layoutX="96.0" layoutY="30.0" prefHeight="20.0" prefWidth="289.0" textFill="#0a9e80f0">
             <font>
                 <Font name="Droid Serif Italic" size="9.0" />
             </font>
         </Label>
-        <Label fx:id="massLabel" alignment="TOP_LEFT" layoutX="96.0" layoutY="50.0" prefHeight="20.0" prefWidth="289.0" textFill="#0a9e80f0">
+        <Label fx:id="massLabel" alignment="TOP_LEFT" layoutX="84.0" layoutY="57.0" prefHeight="10.0" prefWidth="289.0" textFill="#0a9e80f0">
             <font>
                 <Font name="Droid Serif Italic" size="9.0" />
             </font>
         </Label>
-      <Button layoutX="88.0" layoutY="83.0" mnemonicParsing="false" onAction="#getSolution" prefHeight="26.0" prefWidth="53.0" text="show" />
-      <Button layoutY="83.0" mnemonicParsing="false" onAction="#switchMenuScene" prefHeight="26.0" prefWidth="49.0" text="back" />
+      <Button layoutX="175.0" layoutY="80.0" mnemonicParsing="false" onAction="#getSolution" prefHeight="26.0" prefWidth="53.0" text="show" />
+      <Button layoutY="80.0" mnemonicParsing="false" onAction="#switchMenuScene" prefHeight="26.0" prefWidth="49.0" text="back" />
     </children>
 </AnchorPane>

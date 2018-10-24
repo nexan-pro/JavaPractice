@@ -16,8 +16,6 @@ public class Controller {
     private Label volumeLabel, massLabel;
 
     public void getSolution(ActionEvent e) {
-        System.out.print("radius = " + m_radius + "\r\nheight = " + m_height + "\r\ndensity = " + m_density);
-        System.out.print("\r\nisMass = " + isMass + "\r\nisVolume = " + isVolume);
         double volume = (double)1 / 3 * Math.PI * Math.pow(Double.parseDouble(m_radius), 2) * Double.parseDouble(m_height);
         double mass = volume * Double.parseDouble(m_density);
         if (isVolume && isMass) {
@@ -26,7 +24,7 @@ public class Controller {
         }
         else if (isVolume)
             volumeLabel.setText(Double.toString(volume));
-        else
+        else if (isMass)
             massLabel.setText(Double.toString(mass));
     }
 

@@ -10,14 +10,14 @@
 
 <AnchorPane prefHeight="184.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Input.Controller">
    <children>
-      <TextField fx:id="Height" layoutX="89.0" layoutY="68.0" />
+      <TextField fx:id="Height" layoutX="89.0" layoutY="68.0" onKeyTyped="#isChange" />
       <Label alignment="CENTER" layoutX="22.0" layoutY="38.0" prefHeight="20.0" prefWidth="67.0" text="Radius:" textAlignment="CENTER" textFill="#0a9e80f0">
          <font>
             <Font name="Droid Serif Italic" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="Density" layoutX="89.0" layoutY="105.0" />
-      <TextField fx:id="Radius" layoutX="89.0" layoutY="35.0" />
+      <TextField fx:id="Density" layoutX="89.0" layoutY="105.0" onKeyTyped="#isChange" />
+      <TextField fx:id="Radius" layoutX="89.0" layoutY="35.0" onKeyTyped="#isChange" />
       <CheckBox fx:id="Volume" layoutX="267.0" layoutY="59.0" mnemonicParsing="false" text="Volume" textFill="#cb4b16" />
       <CheckBox fx:id="Mass" layoutX="267.0" layoutY="88.0" mnemonicParsing="false" text="Mass" textFill="#cb4b16" />
       <Button layoutX="154.0" layoutY="138.0" mnemonicParsing="false" onAction="#save" text="Save" />
