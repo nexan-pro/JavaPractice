@@ -1,0 +1,18 @@
+.root {
+    -fx-background-color: "#002b36";
+}
+
+.button {
+    -fx-radius: 25;
+    -fx-background-radius: 25;
+    -fx-background-color: "#586e75";
+}
+
+.button:hover {
+    -fx-background-color: "#cb4b16";
+}
+
+.text-field {
+    -fx-background-color: "#073642";
+    -fx-text-fill: "#aaa";
+}
