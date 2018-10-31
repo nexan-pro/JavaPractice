@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 public class strings {
     public static void main(String[] args) {
         try {
-            FileInputStream fstream = new FileInputStream("/home/gilgamesh/IdeaProjects/Main/src/example.txt");
+            FileInputStream fstream = new FileInputStream("src/Pavlovskaya/task7/example.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
             String strline;
             while (((strline = br.readLine()) != null)){
