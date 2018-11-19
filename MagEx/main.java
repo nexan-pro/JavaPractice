@@ -19,16 +19,16 @@ public class main {
   }
 
   public static void main(String[] args) {
-    main obj = new main();
-    obj.givenUsingTimer_whenSchedulingTaskOnce_thenCorrect();
-//    Person firstPerson = new Person("nameOfFirstPerson", Person.Race.ELF, Person.Sex.MAN);
-//    Person secondPerson = new Person("nameOfSecondPerson", Person.Race.GNOME, Person.Sex.WOMAN);
-//    System.out.print("Info about first person: " + firstPerson.print(firstPerson));
-//    System.out.print("Info about second person: " + secondPerson.print(secondPerson));
-//    Warlock warlock = new Warlock("nameOfWarlock", Person.Race.GNOME, Person.Sex.MAN);
-//    System.out.println("be4: health: " + firstPerson.getHealth() + " warlock mana: " + warlock.getMana());
-//    PerformMagic obj = new PerformMagic();
-//    obj.magicEx(new AddHealth(), warlock, firstPerson, 40);
-//    System.out.println("after: health: " + firstPerson.getHealth() + " warlock mana: " + warlock.getMana());
+//    main obj = new main();
+//    obj.givenUsingTimer_whenSchedulingTaskOnce_thenCorrect();
+    Person firstPerson = new Person("nameOfFirstPerson", Person.Race.ELF, Person.Sex.MAN);
+    Person secondPerson = new Person("nameOfSecondPerson", Person.Race.GNOME, Person.Sex.WOMAN);
+    System.out.print("Info about first person: " + firstPerson.print(firstPerson));
+    System.out.print("Info about second person: " + secondPerson.print(secondPerson));
+    Warlock warlock = new Warlock("nameOfWarlock", Person.Race.GNOME, Person.Sex.MAN);
+    System.out.println("be4: health: " + firstPerson.getHealth() + " warlock mana: " + warlock.getMana());
+    PerformMagic obj = new PerformMagic();
+    obj.magicEx(new AddHealth(), warlock, firstPerson, 40);
+    System.out.println("after: health: " + firstPerson.getHealth() + " warlock mana: " + warlock.getMana());
   }
 }

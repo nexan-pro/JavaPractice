@@ -8,6 +8,7 @@ class Person extends config implements Comparator<Person> {
     this.m_name = name;
     this.m_race = race;
     this.m_sex = sex;
+    id = m_id;
   }
 
   enum Race  { HUMAN, GNOME, ELF, ORC, GOBLIN }
@@ -26,7 +27,7 @@ class Person extends config implements Comparator<Person> {
 
   /************************Public get methods*******************************/
   // Get current unique id (total count of persons)
-  public int getId()         { return (m_id);             }
+  public int getId()         { return (id);             }
 
   // Get current object age
   public int getAge()        { return (m_age);            }
@@ -90,8 +91,8 @@ class Person extends config implements Comparator<Person> {
 
   @Override
   public String toString() {
-    return (Integer.toString(m_id) + " " + m_name + " " + m_state + " " + m_race + " "
-            + m_sex + " " + m_age + " " + m_health + " " + m_experience + "\r\n");
+    return (Integer.toString(id) + " " + m_name + " " + m_state + " " + m_race + " "
+      + m_sex + " " + m_age + " " + m_health + " " + m_experience + "\r\n");
   }
 
   /**

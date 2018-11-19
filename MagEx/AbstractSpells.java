@@ -1,8 +1,15 @@
 package MagEx;
 
 abstract class AbstractSpells implements IMagic {
-  int[] min_mana;
+  private static int[] min_mana = {
+    20, // for Cure
+    30, // for Antidote
+    150, // for Revive
+    85, // for BreakDown
+  };
   boolean verbal_component, motor_component;
+
+  public static int getMinMana(int index) { return (min_mana[index]); }
 }
 
 class AddHealth implements IMagic {
@@ -13,7 +20,7 @@ class AddHealth implements IMagic {
 
 class Cure implements IMagic {
   public void performMagic(Warlock warlock, Person person, int strength) {
-    if ((person.getState() == Person.State.IS_SICK.name()) && (warlock.getMana() >= 20))
+    if ((person.getState() == Person.State.IS_SICK.name()) && (warlock.getMana() >= AbstractSpells.getMinMana(0)))
       if (warlock.getMana() % 3 == 0)
         person.setState(person, Person.State.NORMAL);
       else
@@ -25,7 +32,7 @@ class Cure implements IMagic {
 
 class Antidote implements IMagic {
   public void performMagic(Warlock warlock, Person person, int strength) {
-    if ((person.getState() == Person.State.POISONED.name()) && (warlock.getMana() >= 30))
+    if ((person.getState() == Person.State.POISONED.name()) && (warlock.getMana() >= AbstractSpells.getMinMana(1)))
       if (warlock.getMana() % 2 == 0)
         person.setState(person, Person.State.NORMAL);
       else
@@ -37,7 +44,7 @@ class Antidote implements IMagic {
 
 class Revive implements IMagic {
   public void performMagic(Warlock warlock, Person person, int strength) {
-    if ((person.getState() == Person.State.IS_DEAD.name()) && (warlock.getMana() >= 150)) {
+    if ((person.getState() == Person.State.IS_DEAD.name()) && (warlock.getMana() >= AbstractSpells.getMinMana(2))) {
       if (warlock.getMana() % 2 == 0)
         person.setState(person, Person.State.NORMAL);
       else
@@ -64,7 +71,7 @@ class Armour implements IMagic {
 
 class BreakDown implements IMagic {
   public void performMagic(Warlock warlock, Person person, int strength) {
-    if ((person.getState() == Person.State.PARALYZED.name()) && (warlock.getMana() >= 85)) {
+    if ((person.getState() == Person.State.PARALYZED.name()) && (warlock.getMana() >= AbstractSpells.getMinMana(3))) {
       if (warlock.getMana() % 2 == 0)
         person.setState(person, Person.State.NORMAL);
       else
