@@ -78,7 +78,7 @@ public class main {
             c--;
         }
         //secret formula = pow(n,2) - size => max element int second matrix
-        int secretKey = (int)Math.pow(size, 2) - size; //our key to get maximal element in magic cube
+        int secretKey = (int)Math.pow(size, 2) - size; //our key to get maximal element in IMagic cube
         int tmp_rhs = (int)Math.pow(size, 2) - size; //temp key for addition
         //upd
         ecx = 0;
@@ -137,7 +137,7 @@ public class main {
             for (int j = 0; j < size; j++)
                 lhs[i][j] += rhs[i][j];
         }
-        System.out.println("Magic matrix: ");
+        System.out.println("IMagic matrix: ");
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++)
                 System.out.printf("%4d",lhs[i][j]);

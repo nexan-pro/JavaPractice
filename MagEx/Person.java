@@ -15,9 +15,10 @@ class Person extends config implements Comparator<Person> {
   enum State { NORMAL, WEAKENED, IS_SICK, POISONED, PARALYZED, IS_DEAD }
 
   /************************Private fields*******************************/
-  private static int m_id = 0;
-  protected int m_age, m_health = 50, m_experience, id; //!< * health - unsigned variable, need to make exception construction because java don't have unsigned variables
-  private String m_name, m_state = State.NORMAL.name();
+  private static short m_id = 0;
+  protected short m_age, m_health = 50, m_experience, id; //!< * health - unsigned variable, need to make exception construction because java don't have unsigned variables
+  private String m_name;
+  State m_state = State.NORMAL;
   private boolean m_isTalk, m_isMove; //!< m_sex - 1(true) => man, and alternative
   private Race m_race;
   private Sex m_sex;
@@ -50,7 +51,7 @@ class Person extends config implements Comparator<Person> {
    * State may be - normal, weakened, is sick, poisoned, paralyzed, is dead
    * @return person state
    */
-  public String getState()   { return (m_state);          }
+  public String getState()   { return (m_state.name());          }
 
   /**
    * Get race of person
@@ -64,6 +65,10 @@ class Person extends config implements Comparator<Person> {
 
   // Get the value of the m_isMove boolean variable
   public boolean getIsMove() { return (m_isMove);         }
+  /**********************************************************************/
+
+  /************************Public set methods*****************************/
+  public State setState(Person person, State state) { return person.m_state = state; }
   /**********************************************************************/
 
   /************************Public methods*******************************/
@@ -96,18 +101,16 @@ class Person extends config implements Comparator<Person> {
   public String updateState() {
     int precentHealth = m_health / getMaxHealth();
     if (precentHealth < 10)
-      m_state = State.WEAKENED.name();
+      m_state = State.WEAKENED;
     else if (precentHealth >= 10)
-      m_state = State.NORMAL.name();
+      m_state = State.NORMAL;
     else
-      m_state = State.IS_DEAD.name();
+      m_state = State.IS_DEAD;
 
-    return (m_state);
+    return (m_state.name());
   }
 
-  public void print(Person person) {
-    System.out.print(person.toString());
-  }
+  public String print(Person person) { return (person.toString()); }
 }
 
 class Warlock extends Person {
@@ -121,11 +124,25 @@ class Warlock extends Person {
   /************************Public get methods*******************************/
   public int getMana()      { return (m_mana);          }
   public int getMaxMana()   { return (super.MAX_MANA);  }
-  /**********************************************************************/
+  /************************************************************************/
+
+  /***************************** Logic ************************************/
+  protected boolean isManaHandle(Warlock warlock, int mana) {
+    if (warlock.m_mana < mana)
+      return false;
+    return true;
+  }
+  /************************************************************************/
 
   /**************************** Spells ***********************************/
-  public void healing(Warlock warlock, int amount) {
-    if (m_mana <= 0 || m_mana - amount * 2 <= 0) {
+  /**
+   * Healing person
+   * @param warlock - warlock which want to heal person
+   * @param person - person you want to heal
+   * @param amount - amount of unit to heal
+   */
+  public void healing(Warlock warlock, Person person, int amount) {
+    if (!isManaHandle(warlock, amount * 2)) {
       System.out.println("Missing mana");
       return;
     }
@@ -135,9 +152,10 @@ class Warlock extends Person {
     }
     else if (getHealth() <= 0) {
       System.out.println("You died");
+      return;
     }
     else {
-      warlock.m_health += amount;
+      person.m_health += amount;
       warlock.m_mana -= amount * 2;
     }
   }
