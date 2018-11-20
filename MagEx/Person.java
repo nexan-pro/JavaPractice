@@ -2,7 +2,7 @@ package MagEx;
 
 import java.util.Comparator;
 
-class Person extends config implements Comparator<Person> {
+class Person extends Config implements Comparator<Person> {
   Person(String name, Race race, Sex sex) {
     m_id++;
     this.m_name = name;
@@ -13,7 +13,7 @@ class Person extends config implements Comparator<Person> {
 
   enum Race  { HUMAN, GNOME, ELF, ORC, GOBLIN }
   enum Sex   { MAN, WOMAN }
-  enum State { NORMAL, WEAKENED, IS_SICK, POISONED, PARALYZED, IS_DEAD }
+  enum State { NORMAL, WEAKENED, IS_SICK, POISONED, PARALYZED, IS_DEAD, GOD }
 
   /************************Private fields*******************************/
   private static short m_id = 0;
@@ -27,13 +27,13 @@ class Person extends config implements Comparator<Person> {
 
   /************************Public get methods*******************************/
   // Get current unique id (total count of persons)
-  public int getId()         { return (id);             }
+  public int getId()         { return (id);               }
 
   // Get current object age
   public int getAge()        { return (m_age);            }
 
   // Get current object health
-  public int getHealth()     { return (m_health);         }
+  public short getHealth()     { return (m_health);       }
 
   // Get max access health
   public int getMaxHealth()  { return (super.MAX_HEALTH); }
@@ -45,14 +45,14 @@ class Person extends config implements Comparator<Person> {
   public String getName()    { return (m_name);           }
 
   // Get the value of the m_sex
-  public String getSex()     { return (m_sex.name());     }
+  public Sex getSex()     { return (m_sex);               }
 
   /**
    * Get current person state
    * State may be - normal, weakened, is sick, poisoned, paralyzed, is dead
    * @return person state
    */
-  public String getState()   { return (m_state.name());          }
+  public State getState()   { return (m_state);           }
 
   /**
    * Get race of person
@@ -120,7 +120,7 @@ class Warlock extends Person {
     if (name == null || race == null || sex == null) throw new NullPointerException();
   }
 
-  private int m_mana = super.MAX_MANA; //!< current mana
+  protected int m_mana = super.MAX_MANA; //!< current mana
 
   /************************Public get methods*******************************/
   public int getMana()      { return (m_mana);          }
@@ -128,10 +128,27 @@ class Warlock extends Person {
   /************************************************************************/
 
   /***************************** Logic ************************************/
+  /**
+   *
+   * @param warlock - current mana of person
+   * @param mana - mana to need for spell
+   * @return
+   */
   protected boolean isManaHandle(Warlock warlock, int mana) {
     if (warlock.m_mana < mana)
       return false;
     return true;
+  }
+
+  /**
+   * Handle for Armour spell
+   * @param person - person to check mode
+   * @return result of check state
+   */
+  protected boolean isGodMode(Person person) {
+    if (person.getState() == State.GOD)
+      return true;
+    return false;
   }
   /************************************************************************/
 
@@ -147,13 +164,17 @@ class Warlock extends Person {
       System.out.println("Missing mana");
       return;
     }
-    else if (getHealth() >= getMaxHealth() || warlock.m_health + amount > getMaxHealth()) {
+    else if (getHealth() >= getMaxHealth()) {
       System.out.println("You have maximum health or amount too large");
       return;
     }
     else if (getHealth() <= 0) {
       System.out.println("You died");
       return;
+    }
+    else if (warlock.m_health + amount > getMaxHealth()) {
+      person.m_health = MAX_HEALTH;
+      warlock.m_mana -= amount * 2;
     }
     else {
       person.m_health += amount;
