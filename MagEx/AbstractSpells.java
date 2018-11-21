@@ -10,7 +10,7 @@ abstract class AbstractSpells implements IMagic {
     50, // for Armour
     85, // for BreakDown
   };
-  boolean verbal_component, motor_component; //TODO:
+  boolean isVerbal_component, isMotor_component; //TODO:
 
   public static int getMinMana(int index) { return (min_mana[index]); }
 }
