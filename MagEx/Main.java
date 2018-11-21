@@ -22,5 +22,7 @@ public class Main {
     }
     obj.magicEx(new AddHealth(), warlock, firstPerson, 40);
     System.out.println("after: health: " + firstPerson.getHealth() + " warlock mana: " + warlock.getMana());
+    obj.magicEx(new LightningStaff(), warlock, firstPerson, 90);
+    System.out.print("Info about first person: " + firstPerson.print(firstPerson));
   }
 }

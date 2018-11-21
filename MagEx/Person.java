@@ -33,7 +33,7 @@ class Person extends Config implements Comparator<Person> {
   public int getAge()        { return (m_age);            }
 
   // Get current object health
-  public short getHealth()     { return (m_health);       }
+  public short getHealth()   { return (m_health);         }
 
   // Get max access health
   public int getMaxHealth()  { return (super.MAX_HEALTH); }
@@ -45,7 +45,7 @@ class Person extends Config implements Comparator<Person> {
   public String getName()    { return (m_name);           }
 
   // Get the value of the m_sex
-  public Sex getSex()     { return (m_sex);               }
+  public Sex getSex()        { return (m_sex);            }
 
   /**
    * Get current person state
@@ -99,16 +99,16 @@ class Person extends Config implements Comparator<Person> {
    * Update the state, which depends on the current health of the person
    * @return updated state
    */
-  public String updateState() {
-    int precentHealth = m_health / getMaxHealth();
-    if (precentHealth < 10)
-      m_state = State.WEAKENED;
+  public State updateState(Person person) {
+    float precentHealth = (float)person.m_health / person.getMaxHealth() * 100;
+    if (precentHealth < 10 && precentHealth > 0)
+      person.m_state = State.WEAKENED;
     else if (precentHealth >= 10)
-      m_state = State.NORMAL;
+      person.m_state = State.NORMAL;
     else
-      m_state = State.IS_DEAD;
+      person.m_state = State.IS_DEAD;
 
-    return (m_state.name());
+    return (m_state);
   }
 
   public String print(Person person) { return (person.toString()); }
@@ -165,7 +165,7 @@ class Warlock extends Person {
       return;
     }
     else if (getHealth() >= getMaxHealth()) {
-      System.out.println("You have maximum health or amount too large");
+      System.out.println("You have maximum health or amount too LARGE");
       return;
     }
     else if (getHealth() <= 0) {
@@ -175,10 +175,12 @@ class Warlock extends Person {
     else if (warlock.m_health + amount > getMaxHealth()) {
       person.m_health = MAX_HEALTH;
       warlock.m_mana -= amount * 2;
+      person.updateState(person);
     }
     else {
       person.m_health += amount;
       warlock.m_mana -= amount * 2;
+      person.updateState(person);
     }
   }
   /**********************************************************************/

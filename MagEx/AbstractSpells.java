@@ -53,6 +53,7 @@ class Revive implements IMagic {
       else {
         person.setState(person, Person.State.WEAKENED);
         person.m_health = 1;
+        person.updateState(person);
       }
     } else
       System.out.println("performMagic: person state is not IS_DEAD or missing mana"); //TODO: exceptions
@@ -97,6 +98,7 @@ class BreakDown implements IMagic {
       else {
         person.setState(person, Person.State.WEAKENED);
         person.m_health = 1;
+        person.updateState(person);
       }
     } else
       System.out.println("performMagic: person state is not PARALYZED or missing mana"); //TODO: exceptions
