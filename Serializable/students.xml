@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<student>
+    <numberOfGroup>0</numberOfGroup>
+    <progress>0</progress>
+    <progress>0</progress>
+    <progress>0</progress>
+    <progress>0</progress>
+    <progress>0</progress>
+    <students>
+        <surname>qwe</surname>
+        <name>asd</name>
+        <patronymic>xzc</patronymic>
+        <numberOfGroup>564</numberOfGroup>
+        <progress>3</progress>
+        <progress>4</progress>
+        <progress>5</progress>
+        <progress>3</progress>
+        <progress>2</progress>
+    </students>
+    <students>
+        <surname>jkl</surname>
+        <name>wqe</name>
+        <patronymic>xczws</patronymic>
+        <numberOfGroup>42</numberOfGroup>
+        <progress>4</progress>
+        <progress>5</progress>
+        <progress>6</progress>
+        <progress>3</progress>
+        <progress>2</progress>
+    </students>
+    <students>
+        <surname>ere</surname>
+        <name>qweasd</name>
+        <patronymic>trutr</patronymic>
+        <numberOfGroup>646</numberOfGroup>
+        <progress>3</progress>
+        <progress>3</progress>
+        <progress>3</progress>
+        <progress>2</progress>
+        <progress>1</progress>
+    </students>
+</student>
