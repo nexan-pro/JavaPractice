@@ -33,7 +33,7 @@ class CMY extends RGB { // cyan, magenta, yellow
   }
 }
 
-class RGB  {
+class RGB {
   private double red, green, blue;
 
   RGB() { }
@@ -46,6 +46,10 @@ class RGB  {
 
   static RGB createRGB(double red, double green, double blue) {
     return new RGB(red, green, blue);
+  }
+
+  static CMY createCMY(double red, double green, double blue) {
+    return CMY.createCMY(red, green, blue);
   }
 
   double getRed() {
