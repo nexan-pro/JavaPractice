@@ -58,7 +58,7 @@ public class main {
     try {
       Date birthDate = format.parse("20-02-2001"); // set student birthDate
       Student student = new Student(rand.nextInt(1000), "Prokopchenko", "Petr", "Vladimirovich", birthDate);
-      Date dateOfPreparation = format.parse("24-05-2020"); // set date of completion to curriculum program
+      Date dateOfPreparation = format.parse("24-05-2010"); // set date of completion to curriculum program
       Date current_date = new Date();
       Calendar cal = Calendar.getInstance();
       cal.setTime(birthDate);
@@ -74,6 +74,8 @@ public class main {
       }
 
       Degree degree = new Degree(student, rand.nextInt(1000), dateOfPreparation, current_date);
+      degree.setStatus(1);
+      System.out.println("Текущий статус программы: " + degree.getStatus());
       Degree[] list = initListOfDegree(student, rand.nextInt(1000), dateOfPreparation, current_date);
 
       Degree.printDegreeList();
@@ -90,16 +92,25 @@ public class main {
       for (int i = 0; i < 5; i++)
         degree.add(courses[--coursesChoice[i]], i);
 
+      degree.setStatus(2);
+      System.out.println("Текущий статус программы: " + degree.getStatus());
       if (degree.setRule(rule, current_date)) {
         int deleteChoice = 1; // set course to be deleted
         System.out.println("Выбран курс на удаление: " + Course.COURSES[deleteChoice - 1]);
-        degree.delete(deleteChoice);
+        if (degree.checkPrerequisites() && degree.delete(deleteChoice, rule, current_date, degree)) {
+          degree.setStatus(3);
+          System.out.println("Данная программа является допустимой, текущий статус учебной программы: " + degree.getStatus());
+          degree.setStatus(4);
+          System.out.println("Текущий статус программы: " + degree.getStatus());
+        } else {
+          System.out.println("Ошибка, курс не содержит необходимых подкурсов или программа не соответствует выбраным правилам!");
+          degree.setStatus(1);
+          System.out.println("Текущий статус программы: " + degree.getStatus());
+        }
         degree.print();
-        System.out.println((degree.checkPrerequisites()) ? "Данная программа является допустимой"
-            : "Ошибка, курс не содержит необходимых подкурсов");
-      } else  System.out.println("Error, bad training program!");
-    } catch(ParseException e) {
-      e.printStackTrace();
+      } else System.out.println("Ошибка программа не соотвествует правилам");
+      } catch (ParseException e) {
+        e.printStackTrace();
     }
   }
 }

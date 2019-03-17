@@ -65,9 +65,9 @@ class Degree extends Curriculum {
   }
 
   boolean checkCredits() {
-    double curriculumTotalCredits = 0;
+    int curriculumTotalCredits = 0;
     for (int i = 0; i < storage.length; i++) {
-      curriculumTotalCredits += (storage[i].lectureHours + 1.25 * storage[i].practiceHours) / 18;
+      curriculumTotalCredits += (int)((storage[i].lectureHours + 1.25 * storage[i].practiceHours) / 18);
       if (storage[i].hasExam) curriculumTotalCredits++;
       if (storage[i].hasCoursePaper) curriculumTotalCredits += 2;
     }

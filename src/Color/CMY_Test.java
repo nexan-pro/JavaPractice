@@ -33,9 +33,11 @@ class CMY_Test {
     RGB sub_third_rgb = first_rgb.sub(second_rgb);
     CMY cmy = new CMY(sub_third_rgb);
     cmy.print();
+    boolean green = Math.abs(0.1 - sub_third_rgb.getGreen()) < 0.01;
+    boolean blue = Math.abs(0.3 - sub_third_rgb.getBlue()) < 0.01;
     assertEquals(0.3, sub_third_rgb.getRed());
-    assertEquals(0.1, sub_third_rgb.getGreen());
-    assertEquals(0.3, sub_third_rgb.getBlue());
+    assertTrue(green);
+    assertTrue(blue);
   }
 
   @Test
