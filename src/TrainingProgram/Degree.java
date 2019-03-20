@@ -9,7 +9,7 @@ import java.util.Hashtable;
 class Degree extends Curriculum {
   protected int code, creditsRequired, specialCoursesRequired;
   private String title;
-  private static final Hashtable<String, int[]> list = new Hashtable<String, int[]>() {
+  private static final Hashtable<String, int[]> list = new Hashtable<>() {
     {
       put("Техник-программист", new int[]{ 6, 7, 13 });
       put("Экономист", new int[]{ });
