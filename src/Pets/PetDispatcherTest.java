@@ -29,7 +29,7 @@ class PetDispatcherTest {
   void checkNickname() {
     PetDispatcher handle = new PetDispatcher();
     handle.init();
-    assertEquals(handle.checkNickname("cake"), 1);
+    assertEquals(handle.checkNickname("muhtar"), 2);
   }
 
   @Test

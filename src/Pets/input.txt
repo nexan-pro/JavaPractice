@@ -7,4 +7,7 @@ Horoshev, parrot, Archi, 11
 Pupkin, cat, ,, 12
 Mushkin, dog, Vasyan, 13
 Putin, dog, muhtar, 11
+Putin, cat, pushkin, 15
 Cetkin, parrot, muhtar, 1337
+Cetkin, parrot, muhtar, 1337
+Cetkin, dog, muhtar, 1337

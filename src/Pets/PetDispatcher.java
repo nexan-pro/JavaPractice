@@ -33,6 +33,26 @@ class PetDispatcher {
   int countOfDiffKind() {
     try {
       if (pets == null) throw new NullPointerException("Error, need to call init method!");
+      Map<Integer, String> allOwners = new HashMap<>();
+      int ecx = 0;
+
+      for (int i = 0; i < pets.length; i++) {
+        if (!allOwners.containsValue(pets[i].ownerSurname)) {
+          allOwners.put(ecx, pets[i].ownerSurname);
+          ecx++;
+        }
+      }
+
+      for (int i = 0; i < ecx; i++) {
+        Set<String> set = new HashSet<>();
+        for (int j = 0; j < pets.length; j++)
+          if (allOwners.get(i).equals(pets[j].ownerSurname))
+            set.add(pets[j].kind);
+
+        System.out.println("[" + allOwners.get(i) + "] Count of diff kinds: " + set.size());
+        set.clear();
+      }
+
       Set<String> set = new HashSet<>();
       for (int i = 0; i < pets.length; i++)
         set.add(pets[i].kind);
