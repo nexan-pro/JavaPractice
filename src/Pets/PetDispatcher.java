@@ -1,6 +1,11 @@
 package Pets;
 
+import com.google.gson.Gson;
+
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
+
 
 class PetDispatcher {
 
@@ -9,8 +14,13 @@ class PetDispatcher {
   /**
    * @brief initialize main pets storage and process strings
    */
-  void init() {
+  void init() throws IOException {
     try {
+      Gson gson = new Gson();
+      String name = gson.fromJson("name", String.class);
+      pets = gson.fromJson(new FileReader("/home/gilgamesh/Projects/java/JavaPractice/src/Pets/sample.json"), Pet[].class);
+      /* Parse owners info from txt file
+      System.out.println("name from json is: " + name);
       FileHelper hFile = new FileHelper();
       String[] contentOfFile = hFile.readFile();
       pets = new Pet[hFile.getCntOfLines()];
@@ -20,7 +30,8 @@ class PetDispatcher {
       for (int i = 0; i < hFile.getCntOfLines(); i++) {
         String[] formatted = contentOfFile[i].split(", ");
         pets[i] = new Pet(formatted[0], formatted[1], formatted[2], Integer.parseInt(formatted[3]));
-      }
+      }*/
+
     } catch(NullPointerException e) {
       System.out.println(e.getMessage());
     }

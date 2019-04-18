@@ -1,39 +1,42 @@
 package Pets;
 
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PetDispatcherTest {
 
   @Test
-  void countOfDiffKind() {
+  void countOfDiffKind() throws IOException {
     PetDispatcher handle = new PetDispatcher();
     handle.init();
     assertEquals(handle.countOfDiffKind(), 4);
   }
 
   @Test
-  void init() {
+  void init() throws IOException {
     PetDispatcher handle = new PetDispatcher();
     handle.init();
   }
 
   @Test
-  void printOwners() {
+  void printOwners() throws IOException {
     PetDispatcher handle = new PetDispatcher();
     handle.init();
     handle.printOwners("dog");
   }
 
   @Test
-  void checkNickname() {
+  void checkNickname() throws IOException {
     PetDispatcher handle = new PetDispatcher();
     handle.init();
     assertEquals(handle.checkNickname("muhtar"), 2);
   }
 
   @Test
-  void printOldestAndYoungest() {
+  void printOldestAndYoungest() throws IOException {
     PetDispatcher handle = new PetDispatcher();
     handle.init();
     handle.printOldestAndYoungest();
