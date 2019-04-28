@@ -16,7 +16,7 @@ public class DoubleClick {
     frame.setSize(150, 150);
     frame.setVisible(true);
 
-    textField.addMouseListener(new Handle());;
+    textField.addMouseListener(new Handle());
   }
 }
 
